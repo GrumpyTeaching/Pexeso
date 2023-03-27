@@ -28,7 +28,7 @@ def draw_card(i):
 
 def draw_game():
     screen.fill(background)
-    for i in range(12):
+    for i in range(len(cards)):
         draw_card(i)
     pygame.display.update()
 
