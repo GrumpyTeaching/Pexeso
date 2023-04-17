@@ -25,6 +25,8 @@ reversed = []
 
 def position_to_index(pos):
     (x, y) = pos
+    if x > (SIZE+5) * COLUMNS:
+        return 12
     row = y // (SIZE+5) 
     column = x // (SIZE+5)
     idx = row * COLUMNS + column
@@ -61,7 +63,8 @@ def wait_event():
             if len(reversed) == 0:
                 reversed.append(idx)
             elif len(reversed) == 1:
-                reversed.append(idx)
+                if idx not in reversed:
+                    reversed.append(idx)
             else:
                 reversed = []
     
